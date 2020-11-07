@@ -12,9 +12,9 @@
             <tr>
                 <td><%= hon.title %></td>
                 <td><%= hon.body %></td>
-                <td><%= link_to "Show", "/books/#{hon.id}" %></td>
-                <td><%= link_to "Edit", edit_book_path(hon) %></td>
-                <td><%= link_to "Destroy", book_path(hon), method: :delete %></td>
+                <td><%= link_to "Show", "/books/#{hon.id}", class:"btn" %></td>
+                <td><%= link_to "Edit", edit_book_path(hon), class:"btn" %></td>
+                <td><%= link_to "Destroy", book_path(hon), class:"btn",  method: :delete %></td>
             </tr>
         <% end %>
     </tbody>
@@ -22,7 +22,7 @@
 
 <h2>New book</h2>
 <% if @book.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
+  <div class="alert">
     <ul>
         <li>error</li>
       <% @book.errors.full_messages.each do |message| %>

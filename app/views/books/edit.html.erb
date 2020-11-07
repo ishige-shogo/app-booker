@@ -1,6 +1,6 @@
 <h1>Editing Book</h1>
 <% if @book.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
+  <div class="alert">
     <ul>
         <li>error</li>
       <% @book.errors.full_messages.each do |message| %>
@@ -22,6 +22,6 @@
       <%= f.submit "Update Book" %>
   <% end %>
 
-<%= link_to "Show", "/books/#{@book.id}" %>
+<%= link_to "Show", "/books/#{@book.id}", class:"btn" %>
 |
-<%=link_to "Back", books_path %>
+<%=link_to "Back", books_path, class:"btn" %>
