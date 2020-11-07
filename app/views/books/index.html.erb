@@ -21,15 +21,18 @@
 </table>
 
 <h2>New book</h2>
-
-<% @book.errors.full_messages.each do |message| %>
-    <%=message %>
+<% if @book.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+        <li>error</li>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
-<% if flash[:error] %>
-      <p id="notice">
-        <%= flash[:error] %>
-      </p>
-    <% end %>
+
+
 <%=form_with model: @book, local:true do |f| %>
     <div class="field">
         <label for="book-title">Title</label>
